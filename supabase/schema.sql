@@ -150,6 +150,11 @@ $$;
 revoke execute on function public.roll_over_tasks(date) from public, anon;
 grant execute on function public.roll_over_tasks(date) to authenticated;
 
+-- Interne SECURITY-DEFINER-Funktionen nicht öffentlich per API aufrufbar machen
+revoke execute on function public.handle_new_user() from public, anon, authenticated;
+revoke execute on function public.is_admin() from public, anon;
+grant execute on function public.is_admin() to authenticated;
+
 -- ---------------------------------------------------------------------
 -- Zitate: alle dürfen lesen, nur Admins bearbeiten.
 -- ---------------------------------------------------------------------

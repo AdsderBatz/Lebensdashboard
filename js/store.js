@@ -156,6 +156,7 @@ const ERR_DE = [
   [/unable to validate email|invalid email|email address .* is invalid/i, "Diese E-Mail-Adresse ist ungültig."],
   [/rate limit|too many/i, "Zu viele Versuche. Warte kurz und probier es dann nochmal."],
   [/signups not allowed|signup is disabled/i, "Registrierung ist deaktiviert. Frag den Admin."],
+  [/email.?address.?not.?authorized|not authorized/i, "An diese Adresse kann keine E-Mail geschickt werden. Frag den Admin."],
   [/failed to fetch|network/i, "Keine Verbindung zum Server. Prüfe dein Internet."],
   [/row-level security|permission denied/i, "Keine Berechtigung für diese Aktion."],
 ];

@@ -9,6 +9,6 @@
 // ein Nutzer, keine Anmeldung, Daten nur auf diesem Gerät.
 // =====================================================================
 export const CONFIG = {
-  SUPABASE_URL: "",
-  SUPABASE_ANON_KEY: "",
+  SUPABASE_URL: "https://fiqancxvkehvhebevwwg.supabase.co",
+  SUPABASE_ANON_KEY: "sb_publishable_2a4rblcig7xEHVMVq2zDNQ_9bn0zKC0",
 };

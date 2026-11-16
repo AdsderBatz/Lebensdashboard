@@ -32,7 +32,8 @@ Ohne Schritt 2 läuft die App schon im **lokalen Testmodus** (ein Nutzer, Daten 
 3. **Authentication → URL Configuration**:
    - *Site URL*: deine GitHub-Pages-URL aus Schritt 1.4
    - *Redirect URLs*: dieselbe URL hinzufügen
-4. Optional, wenn keine Bestätigungs-Mail nötig sein soll: **Authentication → Sign In / Providers → Email** → *Confirm email* ausschalten.
+4. **Pflicht: Authentication → Sign In / Providers → Email** → *Confirm email* ausschalten → Save.
+   Grund: Ohne eigenen Mailserver verschickt Supabase Auth-Mails nur an Mitglieder deiner Supabase-Organisation (max. 2 pro Stunde). Freunde bekämen die Bestätigungsmail nie und könnten sich nicht anmelden.
 5. Zugangsdaten holen: **Project Settings → API Keys** → den **Publishable key** (`sb_publishable_…`) kopieren. Die **Project URL** steht unter *Project Settings → Data API* bzw. im *Connect*-Dialog.
    ⚠️ Niemals den *Secret key* bzw. *service_role key* verwenden.
 
@@ -69,6 +70,7 @@ set is_admin = (id = (select id from auth.users where email = 'DEINE@EMAIL.at'))
 - Link schicken, sie registrieren sich selbst und sehen nur ihre eigenen Listen.
 - Registrierung schließen: **Authentication → Sign In / Providers** → *Allow new users to sign up* ausschalten.
 - Konto löschen: **Authentication → Users** → Nutzer löschen (alle seine Daten werden mitgelöscht).
+- „Passwort vergessen“ funktioniert ohne eigenen Mailserver nur für Mitglieder deiner Supabase-Organisation, also für dich. Vergisst ein Freund sein Passwort: **Authentication → Users** → Nutzer → *Send password recovery* geht ebenfalls nur mit eigenem Mailserver – am einfachsten Konto löschen und neu registrieren lassen. Für echte Mails: *Authentication → Emails → SMTP Settings* mit einem Anbieter wie Brevo oder Resend einrichten.
 
 ## Fokus-Sperre: Grenzen
 
