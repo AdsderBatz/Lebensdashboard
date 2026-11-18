@@ -1,6 +1,6 @@
 // Service Worker: App funktioniert auch offline (lokaler Modus komplett,
 // Online-Modus zeigt die App-Hülle). Bei jedem Update CACHE-Version erhöhen.
-const CACHE = "ld-v3";
+const CACHE = "ld-v4";
 const SHELL = [
   "./",
   "index.html",
@@ -21,7 +21,10 @@ const SHELL = [
 ];
 
 self.addEventListener("install", (e) => {
-  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));
+  // cache: "reload" = am Browser-Cache vorbei direkt vom Server laden,
+  // sonst landet nach einem Update evtl. noch die alte Datei im neuen Cache.
+  const fresh = SHELL.map((u) => new Request(u, { cache: "reload" }));
+  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(fresh)).then(() => self.skipWaiting()));
 });
 
 self.addEventListener("activate", (e) => {
@@ -37,8 +40,12 @@ self.addEventListener("activate", (e) => {
 self.addEventListener("fetch", (e) => {
   const req = e.request;
   if (req.method !== "GET" || new URL(req.url).origin !== self.location.origin) return;
+  // GitHub Pages erlaubt dem Browser, Dateien 10 Minuten zu cachen. "no-cache" fragt
+  // trotzdem jedes Mal beim Server nach (unverändert = kurze 304-Antwort).
+  // Seitenaufrufe (navigate) bleiben unverändert, damit Weiterleitungen funktionieren.
+  const net = req.mode === "navigate" ? fetch(req) : fetch(req, { cache: "no-cache" });
   e.respondWith(
-    fetch(req)
+    net
       .then((res) => {
         if (res.ok) {
           const copy = res.clone();
