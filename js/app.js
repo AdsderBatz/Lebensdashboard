@@ -365,13 +365,13 @@ function viewToday() {
 
   return page("🏔️", "Heute", U.fmtLong(today),
     progress,
-    h("h2", { class: "block-h" }, "Get-Shit-Done List",
+    h("h2", { class: "block-h" }, "Tägliche To-Dos",
       act.length ? h("button", { class: "ghost", onclick: () => { S.editTodos = !S.editTodos; S.addingTodo = false; render(); } },
         S.editTodos ? "Fertig" : "Bearbeiten") : null),
     todoRows.length ? todoRows : null,
     S.editTodos ? null : todoAdd,
 
-    h("h2", { class: "block-h" }, "Aufgaben heute"),
+    h("h2", { class: "block-h" }, "Get-Shit-Done List"),
     moved.length
       ? callout("↻", h("p", null,
           `${moved.length} ${plural(moved.length, "Aufgabe", "Aufgaben")} aus den Vortagen verschoben. Du hast ${plural(moved.length, "sie", "sie")} liegen lassen.`), "red")
