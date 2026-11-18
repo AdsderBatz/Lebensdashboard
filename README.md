@@ -7,7 +7,7 @@ Webapp (PWA) im Notion-Dark-Stil für Android: tägliche To-Dos mit Fortschritts
 | Bereich | Was es tut |
 |---|---|
 | **Startbildschirm** | Zufälliges Zitat. Erst nach 3 Sekunden Gedrückthalten geht es weiter. Kommt auch wieder, wenn die App über 30 Minuten im Hintergrund war. |
-| **Tägliche To-Dos** | Eigene Liste, gilt jeden Tag neu. Bearbeiten: umbenennen, sortieren, löschen. Gelöschte To-Dos verfälschen die vergangenen Tage im Diagramm nicht. |
+| **Get-Shit-Done List** (tägliche To-Dos) | Eigene Liste, gilt jeden Tag neu. Bearbeiten: umbenennen, sortieren, löschen. Gelöschte To-Dos verfälschen die vergangenen Tage im Diagramm nicht. |
 | **Statistik** | Prozent erledigt pro Tag: Woche (7 Tage), Monat (30 Tage), Jahr (12 Monatsdurchschnitte). Antippen zeigt Details, Umschalter auf Tabelle. Dazu Ø, Tage mit 100 %, Serie. |
 | **Aufgaben heute** | Aufgaben mit Datum. Unerledigte rutschen automatisch auf den nächsten Tag und bekommen einen roten Zähler „↻ X Tage verschoben“. Künftige Aufgaben unter „Geplant“. |
 | **Fokus** | Timer, Vollbild-Sperre, Bildschirm bleibt an, Zurück-Taste blockiert. Wer die App verlässt, muss danach angeben: Anruf / Bildschirm aus / andere App. „Andere App“ = Session gebrochen. Notfall-Abbruch: 5 s halten. Alles wird protokolliert. |

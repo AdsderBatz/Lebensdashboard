@@ -365,7 +365,7 @@ function viewToday() {
 
   return page("🏔️", "Heute", U.fmtLong(today),
     progress,
-    h("h2", { class: "block-h" }, "Tägliche To-Dos",
+    h("h2", { class: "block-h" }, "Get-Shit-Done List",
       act.length ? h("button", { class: "ghost", onclick: () => { S.editTodos = !S.editTodos; S.addingTodo = false; render(); } },
         S.editTodos ? "Fertig" : "Bearbeiten") : null),
     todoRows.length ? todoRows : null,

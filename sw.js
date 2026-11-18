@@ -1,6 +1,6 @@
 // Service Worker: App funktioniert auch offline (lokaler Modus komplett,
 // Online-Modus zeigt die App-Hülle). Bei jedem Update CACHE-Version erhöhen.
-const CACHE = "ld-v1";
+const CACHE = "ld-v2";
 const SHELL = [
   "./",
   "index.html",
